@@ -1,19 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
-const Bird = ({birdBottom, birdLeft}) => {  
+const Bird = ({ birdBottom, birdLeft, color = "yellow" }) => {  
     const birdWidth = 50;
     const birdHeight = 50;
+
     return (
-        <View style={
-            {
+        <View
+            style={{
                 position: 'absolute',
-                backgroundColor:"blue",
-                width:50,
-                height:50,
-            }
-        }>
-        </View>
+                backgroundColor: color,  
+                width: birdWidth,
+                height: birdHeight,
+                left: birdLeft - birdWidth / 2,
+                bottom: birdBottom - birdHeight / 2,
+            }}
+        />
     );
 };
 
