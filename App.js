@@ -12,6 +12,21 @@ export default function App() {
   const [birdBottom, setBirdBottom] = useState(screenHeight / 2);
   const gravity = 3;
   let gameTimerId;
+  let obstaclesTimerId;
+
+  useEffect(() => {
+    if (obstaclesLeft > -60) {
+      obstaclesTimerId = setInterval(() => {
+        setObstaclesLeft((obstaclesLeft) => obstaclesLeft - 5);
+      }, 30);
+      return () => {
+        clearInterval(obstaclesTimerId);
+      };
+    } else {
+      setObstaclesLeft(screenWidth);
+      })
+    }
+  })
 
   useEffect(() => {
     gameTimerId = setInterval(() => {
